@@ -21,7 +21,8 @@
     "start": "cross-env ELEVENTY_ENV=dev npm-run-all clean -p start:css start:js start:11ty",
     "build": "cross-env ELEVENTY_ENV=production npm-run-all clean build:css build:js build:11ty clean:min",
     "debug": "cross-env DEBUG=Eleventy:Benchmark* npm run start",
-    "import": "node scripts/import-modules.mjs"
+    "import": "node scripts/import-modules.mjs",
+    "populate-homepage": "node scripts/populate-homepage.mjs"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.6",
