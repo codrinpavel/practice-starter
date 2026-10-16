@@ -1,1 +1,1 @@
-# Dental website boilerplate
+# Practice Starter
