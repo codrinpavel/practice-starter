@@ -148,13 +148,6 @@ export default async function (eleventyConfig) {
    */
   eleventyConfig.setQuietMode(true);
 
-  eleventyConfig.on("eleventy.after", () => {
-    fs.cpSync(".cache/img", "dist/assets/img", {
-      recursive: true,
-      force: true,
-    });
-  });
-
   return {
     pathPrefix: Config.BASEPATH,
 
