@@ -1,0 +1,3 @@
+@use "../mixins" as *;
+
+@include util(font, font-variation-settings, get-token("font-weight"), font-weight);

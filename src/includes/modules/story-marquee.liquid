@@ -1,0 +1,39 @@
+<section class="section story-marquee" data-module="story-marquee">
+  <header class="wrapper wrapper--narrow mb-9xl">
+    <p class="type-eyebrow mb-2xl" data-reveal="fade-in">Our story</p>
+    <h1 class="type-6xl font-bold word-split" data-reveal-batch>
+      We started <span class="inline-block bg-brand color-white radius-max px-2xl pb-xs">overtake</span>
+      because good <span class="color-surface-200">work</span> kept dying in bad dashboards.
+    </h1>
+  </header>
+
+  {% capture storyMarqueeImages %}
+    <li class="story-marquee__image aspect-square shrink-0 radius-lg overflow-hidden relative" data-reveal="media">
+      <img src="/assets/img/placeholder-01.png" alt="">
+    </li>
+    <li class="story-marquee__image aspect-8-9 shrink-0 radius-lg overflow-hidden relative" data-reveal="media">
+      <img src="/assets/img/placeholder-02.png" alt="">
+    </li>
+    <li class="story-marquee__image aspect-2-3 shrink-0 radius-lg overflow-hidden relative" data-reveal="media">
+      <img src="/assets/img/placeholder-03.png" alt="">
+    </li>
+    <li class="story-marquee__image aspect-square shrink-0 radius-lg overflow-hidden relative" data-reveal="media">
+      <img src="/assets/img/placeholder-04.png" alt="">
+    </li>
+    <li class="story-marquee__image aspect-8-9 shrink-0 radius-lg overflow-hidden relative" data-reveal="media">
+      <img src="/assets/img/placeholder-05.png" alt="">
+    </li>
+    <li class="story-marquee__image aspect-2-3 shrink-0 radius-lg overflow-hidden relative" data-reveal="media">
+      <img src="/assets/img/placeholder-06.png" alt="">
+    </li>
+  {% endcapture %}
+
+  <div class="marquee" tabindex="0" role="region" aria-label="Our story images; focus or hover to pause">
+    <ul>
+      {{ storyMarqueeImages }}
+    </ul>
+    <ul aria-hidden="true">
+      {{ storyMarqueeImages }}
+    </ul>
+  </div>
+</section>

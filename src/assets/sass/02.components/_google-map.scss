@@ -1,0 +1,27 @@
+.google-map {
+  position: relative;
+
+  &::before {
+    content: 'Ver en Google Maps';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0,0,0,.6);
+    opacity: 0;
+    transition: opacity 600ms;
+    border-radius: var(--radius-ml);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--color-white);
+    font-size: var(--font-size-2xl);
+  }
+
+  &:hover,
+  &:focus-visible {
+    &::before {
+      opacity: 1;
+    }
+  }
+}

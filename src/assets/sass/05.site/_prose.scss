@@ -1,0 +1,178 @@
+@use 'typography' as *;
+
+// Prose spacing
+.prose {
+  --space-default: 1.5em;
+  --space-above-list: 1em;
+  --space-above-h: 2em;
+  --space-below-h: 1em;
+  --space-li: .5em;
+  --space-media: var(--size-2xl);
+
+  a:not([class]) {
+    transition: all .3s;
+    color: var(--color-brand);
+
+    &:hover,
+    &:focus-visible {
+      color: var(--color-text);
+    }
+  }
+
+  >* {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  >*+* {
+    margin-top: var(--space-default);
+  }
+
+  > :is(h2, h3, h4, h5, h6) {
+    margin-top: var(--space-above-h);
+
+    +* {
+      margin-top: var(--space-below-h);
+    }
+  }
+
+  >h2+details {
+    margin-top: calc(var(--space-above-h) * 1.2);
+  }
+
+  > :is(img, figure, video, picture, iframe) {
+    margin-top: var(--space-media);
+  }
+
+  >img,
+  >figure>img,
+  >video,
+  >picture>img,
+  >iframe {
+    border-radius: var(--radius);
+  }
+
+  p+ul,
+  p+ol {
+    margin-top: var(--space-above-list);
+  }
+
+  li+li,
+  li>ul,
+  li>ol {
+    margin-top: var(--space-li);
+  }
+
+  details+details {
+    margin-top: 0;
+  }
+
+  details+ :not(details) {
+    margin-top: var(--space-above-h);
+  }
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+// Prose typography
+.prose {
+  h2 {
+    @include type-display-h3;
+    margin-bottom: var(--size-xl);
+  }
+
+  h3 {
+    @include type-xl;
+    font-variation-settings: var(--font-weight-medium);
+  }
+
+  ul:not([class]) li {
+    position: relative;
+    padding-left: 1.5em;
+
+    &::before {
+      content: '';
+      width: 8px;
+      aspect-ratio: 1;
+      border-radius: 3px;
+      background-color: currentColor;
+      flex-shrink: 0;
+      position: absolute;
+      left: 0;
+      top: .45em;
+    }
+  }
+
+  ol:not([class]) {
+    counter-reset: item;
+
+    li {
+      display: flex;
+      gap: var(--size-xs);
+      align-items: flex-start;
+      counter-increment: item;
+
+      &::before {
+        content: counter(item) ".";
+        flex-shrink: 0;
+        min-width: 1.5em;
+        font-variation-settings: var(--font-weight-bold);
+      }
+    }
+  }
+}
+
+
+
+
+
+
+.article {
+  >section:not(.gallery) {
+    padding-block: var(--size-8xl);
+    border-radius: var(--radius-ml);
+    background-color: var(--color-white);
+    margin-bottom: var(--size-site-space);
+
+    .columns {
+      --row-gap: var(--size-4xl);
+
+      > .prose:nth-child(2) {
+        ~ .prose {
+          padding-top: var(--size-4xl);
+        }
+
+        ~ .prose:nth-child(even) {
+          border-top: 1px solid var(--color-surface-100);
+        }
+      }
+    }
+  }
+
+  // move images to the bottom of the column, below the headline.
+  // basically flex-columns justify-between
+  .prose .columns>div:first-child>figure:last-child:not(:only-child) {
+    margin-top: auto;
+  }
+}
+
+.article.article--news {
+  >section {
+    padding-block: var(--size-6xl);
+  }
+
+  h2 {
+    @include type-2xl;
+  }
+
+  h3 {
+    @include type-xl;
+  }
+}

@@ -1,0 +1,8 @@
+@use "../mixins" as *;
+
+@include util(gap, gap, get-token("size"), size);
+@include util(row-gap, row-gap, get-token("size"), size);
+@include util(column-gap, column-gap, get-token("size"), size);
+// todo better way of doing this?
+@include util(--column-gap, --column-gap, get-token("size"), size);
+@include util(--row-gap, --row-gap, get-token("size"), size);

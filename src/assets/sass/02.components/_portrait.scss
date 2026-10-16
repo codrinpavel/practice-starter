@@ -1,0 +1,14 @@
+.portrait {
+  overflow: clip;
+  background: var(--color-surface-100);
+  border-radius: var(--radius-ml);
+
+  img {
+    filter: contrast(1.1) brightness(0.93);
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: top;
+    transform-origin: center 25%;
+    scale: 1.3;
+  }
+}

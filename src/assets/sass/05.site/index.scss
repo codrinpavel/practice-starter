@@ -1,0 +1,13 @@
+@use 'sass:meta';
+@use "@splidejs/splide/dist/css/splide-core.min";
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+@layer site {
+  @include meta.load-css("base");
+  @include meta.load-css("tokens");
+  @include meta.load-css("props");
+  @include meta.load-css("fonts");
+  @include meta.load-css("typography");
+  @include meta.load-css("prose");
+  @include meta.load-css("prose-legal");
+}

@@ -1,0 +1,8 @@
+@use "../mixins" as *;
+
+@include util(border-solid, border-style, solid);
+@include util(border-dashed, border-style, dashed);
+@include util(border-dotted, border-style, dotted);
+@include util(border-double, border-style, double);
+@include util(border-hidden, border-style, hidden);
+@include util(border-none, border-style, none);

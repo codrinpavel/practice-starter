@@ -1,0 +1,18 @@
+@use "../mixins" as *;
+
+$sizes: (
+  zero: 0,
+  0: 0,
+  1: 1px,
+  2: 2px,
+  4: 4px,
+  8: 8px,
+);
+
+@include util(border, border-width, $sizes);
+@include util(border-t, border-top-width, $sizes);
+@include util(border-r, border-right-width, $sizes);
+@include util(border-b, border-bottom-width, $sizes);
+@include util(border-l, border-left-width, $sizes);
+@include util(border-y, border-block-width, $sizes);
+@include util(border-x, border-inline-width, $sizes);

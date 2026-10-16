@@ -1,0 +1,16 @@
+@use "../mixins" as *;
+
+@include util(justify-start, justify-content, flex-start);
+@include util(justify-end, justify-content, flex-end);
+@include util(justify-center, justify-content, center);
+@include util(justify-between, justify-content, space-between);
+@include util(justify-around, justify-content, space-around);
+@include util(justify-evenly, justify-content, space-evenly);
+@include util(justify-stretch, justify-content, stretch);
+@include util(justify-baseline, justify-content, baseline);
+@include util(justify-normal, justify-content, normal);
+@include util(justify-left, justify-content, left);
+@include util(justify-right, justify-content, right);
+@include util(justify-inherit, justify-content, inherit);
+@include util(justify-initial, justify-content, initial);
+@include util(justify-unset, justify-content, unset);

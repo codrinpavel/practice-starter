@@ -1,0 +1,21 @@
+@use "sass:map";
+@use "../05.site/tokens" as *;
+
+/**
+* Gets a deeply nested value from the $tokens object.
+* Example: get-token("breakpoints", "auto")
+*/
+
+@function get-token($keys...) {
+  $value: $tokens;
+
+  @each $key in $keys {
+    $value: map.get($value, $key);
+
+    @if $value == null {
+      @error "`#{$key}` not found in $tokens.";
+    }
+  }
+
+  @return $value;
+}

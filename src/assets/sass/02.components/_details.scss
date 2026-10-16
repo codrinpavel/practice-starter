@@ -1,0 +1,80 @@
+@use '../05.site/typography' as *;
+
+details {
+  margin-block: 0;
+
+  &:last-of-type:after,
+  &::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    opacity: .2;
+  }
+
+  &.is-open {
+    summary::after {
+      transform: rotate(90deg);
+    }
+
+    .details__content {
+      opacity: 1;
+      transition-duration: 800ms;
+    }
+  }
+
+  .details__body {
+    overflow: hidden;
+  }
+
+  .details__content {
+    padding: 0 0 3em;
+    opacity: 0;
+    transition: opacity 0ms;
+    transition-delay: 200ms;
+  }
+}
+
+summary {
+  --plus-size: 12px;
+  --plus-thickness: 2px;
+
+  position: relative;
+  cursor: pointer;
+  padding: .75em calc(var(--plus-size) + var(--size-xl)) 1.5em 0;
+
+  @include type-ml;
+
+  &::marker {
+    content: "";
+  }
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: currentColor;
+    opacity: .7;
+  }
+
+  &::before {
+    top: calc(1em + var(--plus-size) / 2 - var(--plus-thickness) / 2);//calc(50% - var(--plus-thickness) / 2);
+    right: 0;
+    width: var(--plus-size);
+    height: var(--plus-thickness);
+  }
+
+  &::after {
+    top: 1em;
+    right: calc(var(--plus-size) / 2 - var(--plus-thickness) / 2);
+    width: var(--plus-thickness);
+    height: var(--plus-size);
+
+    transition: transform 170ms;
+  }
+}

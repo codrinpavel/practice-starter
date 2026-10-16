@@ -1,0 +1,8 @@
+@use "../mixins" as *;
+
+@include util(overflow-auto, overflow, auto);
+@include util(overflow-hidden, overflow, hidden);
+@include util(overflow-y-clip, overflow-y, clip);
+@include util(overflow-clip, overflow, clip);
+@include util(overflow-visible, overflow, visible);
+@include util(overflow-scroll, overflow, scroll);

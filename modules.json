@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "pages": {
+    "home": [
+      {
+        "category": "header",
+        "module": "header-pill"
+      },
+      {
+        "category": "hero",
+        "module": "story-marquee"
+      },
+      {
+        "category": "logostrip",
+        "module": "partners-slider"
+      },
+      {
+        "category": "footer",
+        "module": "footer-marquee"
+      }
+    ]
+  }
+}

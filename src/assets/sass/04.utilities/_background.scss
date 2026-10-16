@@ -1,0 +1,46 @@
+@use "../mixins" as *;
+
+/**
+  Keywords (inherit / transparent / currentColor)
+**/
+
+@include util(bg, background-color, get-token("colors", "keyword"));
+
+/**
+  User defaults
+**/
+
+@each $name, $color-value in get-token("colors", "default") {
+  @include util(bg-#{$name}, background-color, rgb(from var(--color-#{$name}) r g b / var(--bg-opacity, 1)));
+}
+
+/**
+  User Themes
+**/
+
+// as class
+@each $theme-name, $colors in get-token("colors", "theme") {
+  .theme-#{"" + $theme-name} {
+    @each $color-name, $color-value in $colors {
+      @include util(bg-#{$color-name}, background-color, rgb(from #{$color-value} r g b / var(--bg-opacity, 1)));
+    }
+  }
+}
+
+// as variable
+@each $theme-name, $colors in get-token("colors", "theme") {
+  .theme-#{"" + $theme-name} {
+    @each $color-name, $color-value in $colors {
+      --bg-#{$color-name}: #{$color-value};
+    }
+  }
+}
+
+/**
+  Opacity Settings
+**/
+
+@for $i from 0 through 20 {
+  $value: $i * 0.05;
+  @include util(--bg-opacity-#{$value * 100}, --bg-opacity, #{$value});
+}

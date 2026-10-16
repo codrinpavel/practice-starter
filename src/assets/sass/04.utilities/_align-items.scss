@@ -1,0 +1,10 @@
+@use "../mixins" as *;
+
+@include util(items-start, align-items, flex-start);
+@include util(items-end, align-items, flex-end);
+@include util(items-end-safe, align-items, safe flex-end);
+@include util(items-center, align-items, center);
+@include util(items-center-safe, align-items, safe center);
+@include util(items-baseline, align-items, baseline);
+@include util(items-baseline-last, align-items, last baseline);
+@include util(items-stretch, align-items, stretch);

@@ -1,0 +1,6 @@
+@use "../mixins" as *;
+
+@include util(flex-row, flex-direction, row);
+@include util(flex-row-reverse, flex-direction, row-reverse);
+@include util(flex-col, flex-direction, column);
+@include util(flex-col-reverse, flex-direction, column-reverse);

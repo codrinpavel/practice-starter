@@ -1,0 +1,62 @@
+@use "../mixins" as *;
+
+/**
+  Keywords (inherit / transparent / currentColor)
+**/
+
+@include util(color, color, get-token("colors", "keyword"));
+
+/**
+  User defaults
+**/
+
+@each $color-name, $color-value in get-token("colors", "default") {
+  @include util(color-#{$color-name}, color, rgb(from var(--color-#{$color-name}) r g b / var(--color-opacity, 1)));
+}
+
+/**
+  User Themes
+**/
+
+// as theme-switching class (color-100)
+@each $theme-name, $colors in get-token("colors", "theme") {
+  .theme-#{"" + $theme-name} {
+    @each $color-name, $color-value in $colors {
+      @include util(color-#{$color-name}, color, rgb(from var(--color-#{$color-name}) r g b / var(--color-opacity, 1)));
+    }
+  }
+}
+
+// as color named class (color-slate-100)
+@each $theme-name, $colors in get-token("colors", "theme") {
+  @each $color-name, $color-value in $colors {
+    @include util(color-#{$theme-name}-#{$color-name}, color, rgb(from var(--color-#{$theme-name}-#{$color-name}) r g b / var(--color-opacity, 1)));
+  }
+}
+
+// as variable (--color-100)
+@each $theme-name, $colors in get-token("colors", "theme") {
+  .theme-#{"" + $theme-name} {
+    @each $color-name, $color-value in $colors {
+      --color-#{$color-name}: #{$color-value};
+    }
+  }
+}
+
+:root {
+  // as color named variable (--color-100)
+  @each $theme-name, $colors in get-token("colors", "theme") {
+    @each $color-name, $color-value in $colors {
+      --color-#{"" + $theme-name}-#{$color-name}: #{$color-value};
+    }
+  }
+}
+
+/**
+  Opacity Settings
+**/
+
+@for $i from 0 through 20 {
+  $value: $i * 0.05;
+  @include util(--color-opacity-#{$value * 100}, --color-opacity, #{$value});
+}

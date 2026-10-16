@@ -1,0 +1,53 @@
+@use 'sass:meta';
+@use "../mixins/util" as *;
+
+@layer utilities {
+  @include meta.load-css("at-container");
+  @include meta.load-css("align-items");
+  @include meta.load-css("align-self");
+  @include meta.load-css("aspect-ratio");
+  @include meta.load-css("backdrop-blur");
+  @include meta.load-css("background-gradient");
+  @include meta.load-css("background");
+  @include meta.load-css("blur");
+  @include meta.load-css("border-color");
+  @include meta.load-css("border-image");
+  @include meta.load-css("border-opacity");
+  @include meta.load-css("border-radius");
+  @include meta.load-css("border-style");
+  @include meta.load-css("border-width");
+  @include meta.load-css("box-shadow");
+  @include meta.load-css("color");
+  @include meta.load-css("display");
+  @include meta.load-css("flex-basis");
+  @include meta.load-css("flex-direction");
+  @include meta.load-css("flex-grow");
+  @include meta.load-css("flex-shrink");
+  @include meta.load-css("flex-wrap");
+  @include meta.load-css("font-family");
+  @include meta.load-css("font-size");
+  @include meta.load-css("font-weight");
+  @include meta.load-css("gap");
+  @include meta.load-css("height");
+  @include meta.load-css("justify-content");
+  @include meta.load-css("margin");
+  @include meta.load-css("max-width");
+  @include meta.load-css("min-height");
+  @include meta.load-css("object-fit");
+  @include meta.load-css("object-position");
+  @include meta.load-css("opacity");
+  @include meta.load-css("order");
+  @include meta.load-css("overflow");
+  @include meta.load-css("padding");
+  @include meta.load-css("position");
+  @include meta.load-css("text-align");
+  @include meta.load-css("text-transform");
+  @include meta.load-css("trbl");
+  @include meta.load-css("width");
+  @include meta.load-css("white-space");
+  @include meta.load-css("translate");
+  @include meta.load-css("sr-only");
+  @include meta.load-css("sticky-top");
+
+  @include emit-utils;
+}

@@ -1,0 +1,8 @@
+@use "../mixins" as *;
+
+@include util(text-left, text-align, left);
+@include util(text-center, text-align, center);
+@include util(text-right, text-align, right);
+@include util(text-justify, text-align, justify);
+@include util(text-start, text-align, start);
+@include util(text-end, text-align, end);

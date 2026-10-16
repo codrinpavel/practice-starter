@@ -1,0 +1,6 @@
+@use "../mixins" as *;
+
+@include util(uppercase, text-transform, uppercase);
+@include util(lowercase, text-transform, lowercase);
+@include util(capitalize, text-transform, capitalize);
+@include util(normal-case, text-transform, none);

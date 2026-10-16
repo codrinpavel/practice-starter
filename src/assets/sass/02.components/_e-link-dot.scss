@@ -1,0 +1,28 @@
+.e-link-dot {
+  --dot-size: 10px;
+
+  display: flex;
+  align-items: center;
+  gap: .8em;
+
+  transition: color 300ms, transform 600ms var(--ease-in-out-back);
+
+  &::before {
+    content: '';
+    width: var(--dot-size);
+    aspect-ratio: 1;
+    border-radius: 3px;
+    background-color: var(--color-surface-900);
+    transition: transform 300ms var(--ease-in-back);
+  }
+
+  &:hover,
+  &:focus-visible {
+    transform: translateX(var(--dot-size));
+
+    &:before {
+      background-color: var(--color-brand);
+      transform: translateX(25%) rotate(90deg) scale(1.1);
+    }
+  }
+}

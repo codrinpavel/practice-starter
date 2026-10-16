@@ -1,0 +1,19 @@
+.e-dot {
+  --dot-size: 9px;
+
+  display: flex;
+  align-items: center;
+  gap: .8em;
+
+  &::before {
+    content: '';
+    position: relative;
+    top: -1px;
+    width: var(--dot-size);
+    aspect-ratio: 1;
+    border-radius: 3px;
+    background-color: currentColor;
+    transition: transform 300ms var(--ease-in-back);
+    color: var(--color-brand)
+  }
+}

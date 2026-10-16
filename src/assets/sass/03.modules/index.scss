@@ -1,0 +1,8 @@
+@use 'sass:meta';
+
+@layer modules {
+  @include meta.load-css("header-pill");
+  @include meta.load-css("story-marquee");
+  @include meta.load-css("partners-slider");
+  @include meta.load-css("footer-marquee");
+}

@@ -1,0 +1,4 @@
+@use "../mixins" as *;
+
+@include util(border-image-right-zero, --border-image-right, var(--size-zero));
+@include util(border-image-left-zero, --border-image-left, var(--size-zero));

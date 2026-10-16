@@ -1,0 +1,5 @@
+@use "../mixins" as *;
+
+@include util(flex-wrap, flex-wrap, wrap);
+@include util(flex-wrap-reverse, flex-wrap, wrap-reverse);
+@include util(flex-nowrap, flex-wrap, nowrap);

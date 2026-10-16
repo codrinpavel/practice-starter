@@ -1,0 +1,42 @@
+{%- assign canonical = page.url | url | absurl %}
+{%- assign metaTitle = seo.meta_title | default: title | default: global.seo.meta_title | strip_html | strip %}
+{%- assign metaDescription = seo.meta_description | default: global.seo.meta_description | strip_html | truncate: 360 | strip %}
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="canonical" href="{{ canonical }}">
+<meta property="og:url" content="{{ canonical }}">
+<meta property="og:type" content="website">
+
+{%- # Hide from SE -%}
+{% if disallow_search_engines or system.disallow_search_engines %}
+<meta name="robots" content="noindex, nofollow">
+{% endif %}
+
+{% # Title -%}
+{% if metaTitle %}
+<title>{{ metaTitle }}</title>
+<meta property="og:title" content="{{ metaTitle }}">
+<meta name="twitter:title" content="{{ metaTitle }}">
+{% endif %}
+
+{%- # Description -%}
+{% if metaDescription %}
+<meta name="description" content="{{ metaDescription }}">
+<meta property="og:description" content="{{ metaDescription }}">
+<meta name="twitter:description" content="{{ metaDescription }}">
+{% endif %}
+
+{%- # Image -%}
+{% if global.seo.meta_image %}
+<meta property="og:image" content="{{ global.seo.meta_image | url | absurl }}">
+<meta name="twitter:image" content="{{ global.seo.meta_image | url | absurl }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+{% endif %}
+
+{%- # OG and Twitter -%}
+{% if global.client.site_name %}
+<meta property="og:site_name" content="{{ global.client.site_name }}">
+{% endif %}

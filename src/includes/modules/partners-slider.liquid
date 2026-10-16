@@ -1,0 +1,33 @@
+<section class="section partners-slider" data-module="partners-slider">
+  <div class="wrapper wrapper--narrow">
+    <div class="columns justify-between md:columns-6 --row-gap-3xl">
+      <div>
+        <hr class="partners-slider__accent bg-surface-200 radius-sm mb-lg">
+        <h2 class="type-7xl font-extrabold">Brands, creators, <span class="color-surface-200">allies</span></h2>
+      </div>
+      <div class="lg:columns-5">
+        <p class="type-lg font-normal color-text-faded mt-4xl">We collaborate with brands that believe in honest reviews, strong communities, and content that converts.<br>These are the people shaping a new kind of commerce.</p>
+      </div>
+    </div>
+  </div>
+
+  {% capture partnerLogos %}
+    {% comment %}Replace this placeholder brand collection with partner records when available.{% endcomment %}
+    {% for partner in (1..6) %}
+      <li class="partners-slider__logo shrink-0 flex items-center justify-center border-y-1 border-r-1 border-color-surface-200 px-3xl py-ml md:py-4xl">
+        {% svg "system/logo-placeholder.svg" %}
+      </li>
+    {% endfor %}
+  {% endcapture %}
+
+  <div class="overflow-hidden mt-8xl md:mt-9xl">
+    <div class="partners-slider__marquee marquee" tabindex="0" role="region" aria-label="Brands, creators, allies; focus or hover to pause">
+      <ul>
+        {{ partnerLogos }}
+      </ul>
+      <ul aria-hidden="true">
+        {{ partnerLogos }}
+      </ul>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,80 @@
+@use "sass:math";
+@use 'sass:list';
+@use "../mixins" as *;
+
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: var(--row-gap);
+  margin-left: calc(var(--column-gap) * -1);
+  column-gap: 0 !important;
+
+  >* {
+    flex: 0 1 calc(100% - var(--column-gap));
+    margin-left: var(--column-gap);
+
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
+
+    &:not(:first-child) {
+      margin-top: 0;
+    }
+  }
+
+  &-separator {
+    flex: 0 0 1px;
+  }
+}
+
+@each $bp, $bpVal in get-token("breakpoints") {
+  $breakpoints: get-token("breakpoints");
+
+  @include mq($bp) {
+    $bpName: "";
+
+    @if list.index($breakpoints, ($bp $bpVal)) > 1 {
+      $bpName: "#{$bp}\\:";
+    }
+
+    /**
+      * Column widths
+      * e.g. .columns-1, .lg:columns-12
+      */
+    @for $span from 0 through 12 {
+
+      // mass-apply to all direct descendents with low specificity
+      .columns.#{$bpName}columns-#{$span}>*,
+      // do not apply to the main .columns container
+      .#{$bpName}columns-#{$span}:not(.columns) {
+        flex-basis: calc(math.percentage(math.div($span, 12)) - var(--column-gap));
+      }
+
+      /**
+        Columns offset
+        */
+      .#{$bpName}ml-#{$span} {
+        margin-left: calc(math.percentage(math.div($span, 12)) + var(--column-gap));
+      }
+      .#{$bpName}mr-#{$span} {
+        margin-right: calc(math.percentage(math.div($span, 12)));
+      }
+    }
+
+    /**
+      Columns auto offset
+      */
+    .#{$bpName}ml-auto {
+      margin-left: auto;
+    }
+
+    /**
+      * Auto column widths
+      * e.g. .col-auto, .lg:col-auto
+      */
+    .columns.#{$bpName}columns-auto>*,
+    .#{$bpName}columns-auto:not(.columns) {
+      flex-basis: auto;
+    }
+  }
+}

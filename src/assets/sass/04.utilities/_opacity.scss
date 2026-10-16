@@ -1,0 +1,9 @@
+// todo make these tokens? check figma
+
+@use "../mixins" as *;
+
+@for $i from 0 through 20 {
+  $value: $i * 0.05;
+
+  @include util(opacity-#{$value * 100}, opacity, #{$value});
+}

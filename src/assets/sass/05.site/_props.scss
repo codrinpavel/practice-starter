@@ -1,0 +1,65 @@
+@use "../mixins" as *;
+
+:root {
+  --grid-margin: 16px;
+  --grid-screenwidth: 1600px;
+  --column-gap: var(--size-site-space);
+  --row-gap: var(--size-site-space);
+  --header-height: 56px;
+
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-snappy: cubic-bezier(.04,.69,.31,.98);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease: cubic-bezier(.16, .5, .3, 1);
+  --ease-in-out-circ: cubic-bezier(0.85,0,0.15,1);
+  --ease-out-quad: cubic-bezier(0.5,1,0.89,1);
+  --ease-in-out-back: cubic-bezier(0.68,-0.6,0.32,1.6);
+  --ease-in-back: cubic-bezier(0.36,0,0.66,-0.56);
+
+  --radius: var(--radius-md);
+
+  @include mq(md) {
+    --grid-margin: var(--size-8xl);
+    --header-height: 80px;
+  }
+
+  @include mq(xxl) {
+    --header-height: 96px;
+  }
+
+  @each $key, $val in get-token("colors", "default") {
+    --color-#{$key}: #{$val};
+  }
+
+  @each $key, $val in get-token("font-family") {
+    --font-family-#{$key}: #{$val};
+  }
+
+  @each $key, $val in get-token("font-weight") {
+    --font-weight-#{""+$key}: #{$val};
+  }
+
+  @each $key, $val in get-token("size") {
+    --size-#{$key}: #{$val};
+  }
+
+  @each $key, $val in get-token("font-size") {
+    --font-size-#{$key}: #{$val};
+  }
+
+  @each $key, $val in get-token("ratio") {
+    --ratio-#{$key}: #{$val};
+  }
+
+  @each $key, $val in get-token("blur") {
+    --blur-#{$key}: #{$val};
+  }
+
+  @each $key, $val in get-token("radius") {
+    --radius-#{$key}: #{$val};
+  }
+
+  @each $key, $val in get-token("shadow") {
+    --shadow-#{$key}: #{$val};
+  }
+}

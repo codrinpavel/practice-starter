@@ -1,0 +1,11 @@
+@use "../mixins" as *;
+
+@include util(self-auto, align-self, flex-start);
+@include util(self-start, align-self, flex-start);
+@include util(self-end, align-self, flex-end);
+@include util(self-end-safe, align-self, safe flex-end);
+@include util(self-center, align-self, center);
+@include util(self-center-safe, align-self, safe center);
+@include util(self-stretch, align-self, stretch);
+@include util(self-baseline, align-self, baseline);
+@include util(self-baseline-last, align-self, last baseline);

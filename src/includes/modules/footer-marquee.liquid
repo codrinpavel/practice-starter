@@ -1,0 +1,120 @@
+{% assign menuMain = collections['menu-main'] | order %}
+{% assign menuTreatments = collections['menu-treatments'] | order %}
+{% assign menuLegal = collections['menu-legal'] | order %}
+
+<footer class="footer-marquee bg-surface-50 color-text pt-6xl pb-2xl" data-module="footer-marquee">
+  <div class="wrapper">
+    <div class="columns --row-gap-3xl">
+      <div class="md:columns-4"><p class="type-sm">Let's work together</p></div>
+      <div class="md:columns-8">
+        <h2 class="type-5xl">
+          Great ideas begin with a conversation. Let's make something that matters.
+        </h2>
+        <a class="e-rollover mt-2xl" href="mailto:{{ client.email }}">
+          <span data-rollover="Start a conversation">Start a conversation</span>
+        </a>
+      </div>
+    </div>
+    <div class="columns --row-gap-4xl mt-6xl mb-6xl md:columns-6">
+      <div>
+        <nav aria-label="Footer navigation">
+          <div class="columns --row-gap-2xl columns-6">
+            <ul class="flex flex-col gap-md">
+              {% for item in menuMain %}
+                <li>
+                  <a class="e-rollover" href="{{ item.url | url }}">
+                    <span data-rollover="{{ item.data.title | escape }}">
+                      {{- item.data.title -}}
+                    </span>
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+            <ul class="flex flex-col gap-md">
+              {% for item in menuTreatments %}
+                <li>
+                  <a class="e-rollover" href="{{ item.url | url }}">
+                    <span data-rollover="{{ item.data.title | escape }}">
+                      {{- item.data.title -}}
+                    </span>
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div>
+        <div class="columns --row-gap-xl columns-6">
+          <div>
+            <h3 class="type-sm mb-xl">Visit our studio</h3>
+            <address>{{ client.address }}</address>
+          </div>
+          <div>
+            <h3 class="type-sm mb-xl">Opening hours</h3>
+            <dl>
+              {% for day in client.schedule %}
+                <div>
+                  <dt>{{ day[0] }}</dt>
+                  <dd>{{ day[1] }}</dd>
+                </div>
+              {% endfor %}
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="flex flex-wrap gap-xl mb-4xl">
+      {% for item in menuLegal %}
+        <li>
+          <a class="e-link" href="{{ item.url | url }}">{{ item.data.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+    <ul class="flex flex-wrap gap-xl mb-4xl">
+      {% for social in client.social %}
+        <li>
+          <a class="e-link" href="{{ social.url }}">{{ social.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div
+    class="footer-marquee__strip"
+    tabindex="0"
+    role="region"
+    aria-label="Studio imagery; focus or hover to pause"
+  >
+    <div class="marquee">
+      {% for copy in (1..2) %}
+        <ul
+          {% if copy == 2 %}
+            aria-hidden="true"
+          {% endif %}
+        >
+          <li class="footer-marquee__mark flex items-center" aria-hidden="true">
+            {% svg "system/logo-placeholder.svg" %}
+          </li>
+          <li>
+            <img
+              class="footer-marquee__image aspect-3-2 object-cover"
+              src="/assets/img/placeholder-01.png"
+              alt=""
+            >
+          </li>
+
+          <li class="footer-marquee__mark flex items-center" aria-hidden="true">
+            {% svg "system/logo-placeholder.svg" %}
+          </li>
+          <li>
+            <img
+              class="footer-marquee__image aspect-3-2 object-cover"
+              src="/assets/img/placeholder-01.png"
+              alt=""
+            >
+          </li>
+        </ul>
+      {% endfor %}
+    </div>
+  </div>
+</footer>

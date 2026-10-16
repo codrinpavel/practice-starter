@@ -1,0 +1,24 @@
+{% assign team = collections["nuestro-equipo"] | order %}
+{% assign item_limit = limit | default: 99 %}
+
+{% for item in team limit: item_limit %}
+  {% unless item.url == page.url %}
+    <article data-reveal="media">
+      <a href="{{ item.url | url }}">
+        {% if item.data.image %}
+          <figure class="portrait">
+            <img src="/assets/img/uploads/{{ item.data.image }}" alt="" />
+          </figure>
+        {% endif %}
+
+        <div class="pt-xl px-ml">
+          <h3 class="type-2xl font-normal mb-md">{{ item.data.title }}</h3>
+
+          {% if item.data.specialty %}
+            <p class="color-text-faded">{{ item.data.specialty }}</p>
+          {% endif %}
+        </div>
+      </a>
+    </article>
+  {% endunless %}
+{% endfor %}

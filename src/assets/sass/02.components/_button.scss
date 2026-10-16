@@ -1,0 +1,113 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--font-size-md);
+  line-height: 1.4;
+
+  padding: var(--size-ml) var(--size-xl);
+  border-radius: var(--radius-max);
+
+  color: var(--color-text-100);
+  background-color: var(--color-surface-900);
+
+  transition: background-color 300ms;
+
+  .lucide,
+  svg {
+    position: relative;
+    width: var(--size-ml);
+    transition: transform 300ms var(--ease-in-out-back);
+  }
+
+  &:hover,
+  &:focus-visible {
+    background-color: color-mix(in srgb, var(--color-surface-900) 90%, white);
+
+    .lucide-chevron-right {
+      transform: translateX(4px);
+    }
+  }
+
+  &.splide__arrow--prev {
+    &:hover,
+    &:focus-visible {
+      .lucide {
+        transform: translateX(-4px);
+      }
+    }
+  }
+}
+
+.button--social {
+  border-radius: var(--radius-xs);
+  padding: var(--size-sm);
+  color: var(--color-text);
+  background-color: var(--color-surface-100);
+  box-shadow: 0 0 0 1px var(--color-surface-200);
+  min-width: 40px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: var(--size-lg);
+  }
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--color-surface-50);
+  }
+}
+
+.button--sm {
+  font-size: var(--font-size-sm);
+  padding: var(--size-ml) var(--size-xl);
+  font-variation-settings: 'wght' 500;
+
+  .lucide {
+    width: var(--size-lg);
+  }
+}
+
+.button--lg {
+  padding: var(--size-lg) var(--size-2xl);
+  font-variation-settings: 'wght' 500;
+
+  .lucide {
+    width: var(--size-lg);
+  }
+}
+
+.button--xxl {
+  padding: var(--size-2xl) var(--size-5xl);
+  font-variation-settings: 'wght' 400;
+  column-gap: var(--size-lg);
+  font-size: var(--font-size-lg);
+
+  .lucide {
+    width: var(--size-xl);
+    top: 2px;
+  }
+}
+
+.button--light {
+  color: var(--color-text);
+  background-color: var(--color-white);
+
+  &:hover,
+  &:focus-visible {
+    background-color: color-mix(in srgb, var(--color-white) 90%, black);
+  }
+}
+
+
+.button--dark {
+  color: var(--color-white);
+  background-color: var(--color-text);
+
+  &:hover,
+  &:focus-visible {
+    background-color: color-mix(in srgb, var(--color-text) 80%, white);
+  }
+}

@@ -1,0 +1,7 @@
+@use "../mixins" as *;
+
+@include util(inset, inset, get-token("size"), size);
+@include util(top, top, get-token("size"), size);
+@include util(right, right, get-token("size"), size);
+@include util(bottom, bottom, get-token("size"), size);
+@include util(left, left, get-token("size"), size);

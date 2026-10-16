@@ -1,0 +1,5 @@
+{%- if system.environment == "production" -%}
+  --INLINE JS--
+{%- else -%}
+  <script src="/assets/min/main.min.js"></script>
+{%- endif -%}

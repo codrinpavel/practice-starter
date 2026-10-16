@@ -1,0 +1,10 @@
+{% for item in items %}
+  <h3 class="type-xl">{{ item.title }}</h3>
+  {% if item.description %}
+  <p class="color-text-faded mt-sm">{{ item.description }}</p>
+  {% endif %}
+
+  {% unless forloop.last %}
+    <hr class="my-4xl" />
+  {% endunless %}
+{% endfor %}

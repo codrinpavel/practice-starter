@@ -1,0 +1,7 @@
+@use "../mixins" as *;
+
+@include util(radius, border-radius, get-token("radius"), radius);
+@include util(radius-tl, border-top-left-radius, get-token("radius"), radius);
+@include util(radius-tr, border-top-right-radius, get-token("radius"), radius);
+@include util(radius-bl, border-bottom-left-radius, get-token("radius"), radius);
+@include util(radius-br, border-bottom-right-radius, get-token("radius"), radius);

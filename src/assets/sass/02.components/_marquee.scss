@@ -1,0 +1,45 @@
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+
+  &:hover,
+  &:focus-visible,
+  &:focus-within {
+    animation-play-state: paused;
+  }
+
+  &--reverse {
+    animation-name: marquee-reverse;
+  }
+
+  ul {
+    display: flex;
+    flex-shrink: 0;
+    gap: var(--marquee-gap, var(--size-2xl));
+    margin: 0;
+    padding: 0;
+    padding-right: var(--marquee-gap, var(--size-2xl));
+    list-style: none;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}

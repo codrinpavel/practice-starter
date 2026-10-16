@@ -1,0 +1,13 @@
+<svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .favicon__bg { fill: #a6a999; stroke: #2d312a }
+  </style>
+  <rect 
+    class="favicon__bg" 
+    x="5"
+    y="5"
+    width="170"
+    height="170"
+    rx="85"
+    stroke-width="10"/>
+</svg>

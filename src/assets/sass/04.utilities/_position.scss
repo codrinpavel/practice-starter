@@ -1,0 +1,7 @@
+@use "../mixins" as *;
+
+@include util(static, position, static);
+@include util(fixed, position, fixed);
+@include util(absolute, position, absolute);
+@include util(relative, position, relative);
+@include util(sticky, position, sticky);

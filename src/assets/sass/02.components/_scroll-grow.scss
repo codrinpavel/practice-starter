@@ -1,0 +1,18 @@
+.scroll-grow {
+  position: relative;
+  width: 100%;
+
+  animation: scroll-grow-clip cubic-bezier(.77, 0, .58, 1) both;
+  animation-timeline: view();
+  animation-range: entry 20% entry calc(100% - var(--header-height));
+}
+
+@keyframes scroll-grow-clip {
+  from {
+    clip-path: inset(0 calc(var(--size-site-space) + var(--size-4xl)) round var(--radius-ml));
+  }
+
+  to {
+    clip-path: inset(0);
+  }
+}

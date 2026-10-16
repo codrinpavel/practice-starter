@@ -1,0 +1,25 @@
+.e-rollover {
+  position: relative;
+  overflow: clip;
+
+  display: inline-flex;
+  align-items: center;
+
+  span {
+    position: relative;
+    transition: transform 500ms var(--ease-in-out-back);
+
+    &::before {
+      content: attr(data-rollover);
+      position: absolute;
+      inset: 100% 0 0;
+    }
+  }
+
+  &:hover,
+  &:focus-visible {
+    span {
+      transform: translateY(-100%);
+    }
+  }
+}

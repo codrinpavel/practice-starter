@@ -1,0 +1,9 @@
+@use "../mixins" as *;
+
+@include util(p, padding, get-token("size"), size);
+@include util(py, padding-block, get-token("size"), size);
+@include util(px, padding-inline, get-token("size"), size);
+@include util(pt, padding-top, get-token("size"), size);
+@include util(pr, padding-right, get-token("size"), size);
+@include util(pb, padding-bottom, get-token("size"), size);
+@include util(pl, padding-left, get-token("size"), size);

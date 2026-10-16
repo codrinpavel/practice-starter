@@ -1,0 +1,179 @@
+@use "../mixins" as *;
+
+body,
+.type-regular {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-ml);
+  font-variation-settings: var(--font-weight-normal);
+  line-height: 1.4;
+  font-style: normal;
+  font-variant-numeric: tabular-nums;
+  text-wrap: pretty;
+}
+
+
+@mixin type-display {
+  font-family: var(--font-family-serif);
+  font-size: var(--font-size-6xl);
+  font-weight: normal;
+  line-height: 1.3;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+  margin-left: -0.06em;
+}
+
+@mixin type-display-h1 {
+  font-family: var(--font-family-serif);
+  font-size: fluid(60px, 140px);
+  font-weight: normal;
+  line-height: 1.3;
+  letter-spacing: -.06em;
+  text-wrap: balance;
+}
+
+@mixin type-display-h3 {
+  font-family: var(--font-family-serif);
+  font-size: var(--font-size-3xl);
+  font-weight: normal;
+  letter-spacing: -.04em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+@mixin type-eyebrow {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-variation-settings: var(--font-weight-bold);
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: var(--color-text-faded);
+}
+
+.type-display { @include type-display; }
+.type-display-h1 { @include type-display-h1; }
+.type-display-h3 { @include type-display-h3; }
+.type-eyebrow { @include type-eyebrow; }
+
+
+@mixin type-7xl {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-7xl);
+  font-variation-settings: var(--font-weight-extralight);
+  line-height: 1.1;
+  font-weight: normal;
+  letter-spacing: normal;
+}
+
+//@mixin type-6xl {
+//  font-family: var(--font-family-sans);
+//  font-size: var(--font-size-6xl);
+//  font-variation-settings: var(--font-weight-extralight);
+//  line-height: 1.1;
+//  font-weight: normal;
+//  letter-spacing: normal;
+//}
+
+@mixin type-5xl {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-5xl);
+  font-variation-settings: var(--font-weight-light);
+  line-height: 1.15;
+  font-weight: normal;
+  letter-spacing: normal;
+}
+
+@mixin type-4xl {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-4xl);
+  font-variation-settings: var(--font-weight-normal);
+  line-height: 1.2;
+  font-weight: normal;
+  letter-spacing: normal;
+}
+
+//@mixin type-3xl {
+//  font-family: var(--font-family-sans);
+//  font-size: var(--font-size-3xl);
+//  font-variation-settings: var(--font-weight-light);
+//  line-height: 1.15;
+//  font-weight: normal;
+//  letter-spacing: normal;
+//}
+
+@mixin type-2xl {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-2xl);
+  font-variation-settings: var(--font-weight-normal);
+  line-height: 1.25;
+  font-weight: normal;
+  letter-spacing: -0.02em;
+}
+
+@mixin type-xl {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xl);
+  font-variation-settings: var(--font-weight-light);
+  line-height: 1.2;
+  font-weight: normal;
+  letter-spacing: normal;
+}
+
+@mixin type-lg {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-lg);
+  font-variation-settings: var(--font-weight-light);
+  line-height: 1.25;
+  font-weight: normal;
+  letter-spacing: normal;
+}
+
+@mixin type-ml {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-ml);
+  font-variation-settings: var(--font-weight-medium);
+  line-height: 1.3;
+  font-weight: normal;
+  letter-spacing: normal;
+}
+
+@mixin type-md {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-md);
+  font-variation-settings: var(--font-weight-medium);
+  line-height: 1.3;
+  font-weight: normal;
+  letter-spacing: normal;
+}
+
+@mixin type-sm {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-variation-settings: var(--font-weight-normal);
+  line-height: 1.4;
+  font-weight: normal;
+  letter-spacing: normal;
+}
+
+//@mixin type-xs {
+//  font-family: var(--font-family-sans);
+//  font-size: var(--font-size-xs);
+//  font-variation-settings: var(--font-weight-normal);
+//  line-height: 1.5;
+//  font-weight: normal;
+//  letter-spacing: normal;
+//}
+
+.type-7xl { @include type-7xl; }
+//.type-6xl { @include type-6xl; }
+.type-5xl { @include type-5xl; }
+//.type-3xl { @include type-3xl; }
+.type-4xl { @include type-4xl; }
+.type-2xl { @include type-2xl; }
+.type-xl  { @include type-xl; }
+.type-lg  { @include type-lg; }
+.type-ml  { @include type-ml; }
+.type-md  { @include type-md; }
+.type-sm  { @include type-sm; }
+//.type-xs  { @include type-xs; }

@@ -1,0 +1,35 @@
+body {
+  color: var(--color-text);
+}
+
+main {
+  padding: var(--header-height) var(--size-site-space) 0;
+  background-color: var(--color-white);
+
+  .lucide-arrow-up-from-dot circle {
+    stroke: var(--color-brand);
+  }
+
+  > .section {
+    padding-block: var(--size-8xl);
+    border-radius: var(--radius-ml);
+
+    + .section {
+      margin-top: var(--size-site-space);
+    }
+  }
+}
+
+svg {
+  height: auto;
+}
+
+b, strong {
+  font-variation-settings: var(--font-weight-semibold);
+}
+
+video {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}

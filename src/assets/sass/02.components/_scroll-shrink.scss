@@ -1,0 +1,18 @@
+.scroll-shrink {
+  position: relative;
+  width: 100%;
+
+  animation: scroll-shrink-clip cubic-bezier(.77, 0, .58, 1) both;
+  animation-timeline: view();
+  animation-range: contain 0% contain 100%;
+}
+
+@keyframes scroll-shrink-clip {
+  from {
+    clip-path: inset(0);
+  }
+
+  to {
+    clip-path: inset(0 var(--size-site-space) round var(--radius-ml));
+  }
+}

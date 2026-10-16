@@ -1,0 +1,58 @@
+@use "query" as *;
+@use "get-token" as *;
+@use 'sass:list';
+@use 'sass:meta';
+@use 'sass:map';
+
+$__utils: () !default;
+
+@mixin util($className, $property, $value: false, $useVars: false) {
+  $__utils: list.append(
+    $__utils,
+    (
+      className: $className,
+      property: $property,
+      value: $value,
+      useVars: $useVars
+    )
+  ) !global;
+}
+
+@mixin emit-utils {
+  $breakpoints: get-token("breakpoints");
+
+  @each $bp, $bpVal in $breakpoints {
+    @include mq(#{$bp}) {
+      $bpName: "";
+
+      @if list.index($breakpoints, ($bp $bpVal)) > 1 {
+        $bpName: "#{$bp}\\:";
+      }
+
+      @each $util in $__utils {
+        $className: map.get($util, className);
+        $property: map.get($util, property);
+        $value: map.get($util, value);
+        $useVars: map.get($util, useVars);
+
+        @if meta.type-of($value) == "map" {
+          @each $key, $val in $value {
+            $propertyValue: $val;
+
+            @if $useVars {
+              $propertyValue: var(--#{$useVars}-#{$key});
+            }
+
+            .#{$bpName}#{$className}-#{"" + $key} {
+              #{$property}: #{$propertyValue};
+            }
+          }
+        } @else {
+          .#{$bpName}#{$className} {
+            #{$property}: #{$value};
+          }
+        }
+      }
+    }
+  }
+}

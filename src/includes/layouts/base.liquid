@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {%- include "system/meta.liquid" %}
+    {%- include "system/favicon.liquid" %}
+    {%- include "system/preloads.liquid" %}
+    {%- include "system/styles.liquid" %}
+  </head>
+
+  <body class="{{body_classes}}">
+    <main id="main" class="{{body_classes}}">
+      {{ content }}
+    </main>
+    {% include "system/scripts.liquid" %}
+  </body>
+</html>

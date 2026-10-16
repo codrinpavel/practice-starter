@@ -1,0 +1,77 @@
+@use "sass:math";
+
+$default-min-bp: 480px;
+$default-mid-bp: 1200px;
+$default-max-bp: 1900px;
+
+@function round($number, $decimals: 4) {
+  $n: 1;
+
+  @if $decimals > 0 {
+    @for $i from 1 through $decimals {
+      $n: $n * 10;
+    }
+  }
+
+  @return math.div(math.round($number * $n), $n);
+}
+
+@function px-to-rem($px) {
+  @return math.div($px, 16px) * 1rem;
+}
+
+@function fluid(
+  $min-size,
+  $max-size,
+  $min-breakpoint: $default-min-bp,
+  $max-breakpoint: $default-max-bp,
+  $mid-breakpoint: $default-mid-bp,
+  $mid-progress: 0.25
+) {
+  $range: $max-size - $min-size;
+
+  // Only 25% of the total growth happens before 1024px by default.
+  $mid-size: $min-size + ($range * $mid-progress);
+
+  // First slope: min breakpoint → 1024px
+  $slope-1: math.div(
+    $mid-size - $min-size,
+    $mid-breakpoint - $min-breakpoint
+  );
+
+  $slope-1-vw: round($slope-1 * 100);
+
+  $intercept-1: round(
+    px-to-rem($min-size - $slope-1 * $min-breakpoint)
+  );
+
+  // Second slope: 1024px → max breakpoint
+  $slope-2: math.div(
+    $max-size - $mid-size,
+    $max-breakpoint - $mid-breakpoint
+  );
+
+  $slope-2-vw: round($slope-2 * 100);
+
+  $intercept-2: round(
+    px-to-rem($mid-size - $slope-2 * $mid-breakpoint)
+  );
+
+  $min-rem: round(px-to-rem($min-size));
+  $mid-rem: round(px-to-rem($mid-size));
+  $max-rem: round(px-to-rem($max-size));
+
+  @return min(
+    clamp(
+      #{$min-rem},
+      #{$slope-1-vw}vw + #{$intercept-1},
+      #{$mid-rem}
+    ) +
+    clamp(
+      0rem,
+      #{$slope-2-vw}vw + #{round(px-to-rem(-$slope-2 * $mid-breakpoint))},
+      #{$max-rem - $mid-rem}
+    ),
+    #{$max-rem}
+  );
+}

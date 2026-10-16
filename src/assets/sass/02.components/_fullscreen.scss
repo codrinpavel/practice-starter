@@ -1,0 +1,12 @@
+.fullscreen {
+  min-height: calc(100svh - var(--header-height));
+  display: flex;
+
+  > .wrapper {
+    display: flex;
+
+    > .columns {
+      width: calc(100% + calc(var(--column-gap)));
+    }
+  }
+}

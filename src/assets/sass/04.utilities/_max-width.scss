@@ -1,0 +1,5 @@
+@use "../mixins" as *;
+
+@include util(max-w-100\%, max-width, "100%");
+@include util(max-w-75\%, max-width, "75%");
+@include util(max-w-50\%, max-width, "50%");

@@ -1,0 +1,7 @@
+@use "../mixins" as *;
+
+@include util(object-contain, object-fit, contain);
+@include util(object-cover, object-fit, cover);
+@include util(object-fill, object-fit, fill);
+@include util(object-none, object-fit, none);
+@include util(object-scale-down, object-fit, scale-down);

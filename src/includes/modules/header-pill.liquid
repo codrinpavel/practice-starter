@@ -1,0 +1,42 @@
+{% assign menuMain = collections['menu-main'] | order %}
+<div class="overlay"></div>
+<header class="header header--pill" data-module="header-pill">
+  <div class="header--pill__container">
+    <nav class="navbar flex justify-between items-center">
+      <a href="/" class="navbar__logomark">{% svg "system/logomark-placeholder.svg" %}</a>
+
+      <a href="/" class="flex items-center font-extrabold type-md">Practice Bureau</a>
+      <button class="hamburger" aria-controls="menu" aria-expanded="false">
+        <span></span>
+      </button>
+    </nav>
+
+    <div id="menu" inert>
+      <div class="px-xl py-2xl">
+        <div class="columns md:columns-6 --row-gap-4xl">
+          <nav class="menu" aria-label="Primary navigation">
+            <ul class="menu__nav type-xl font-medium">
+              {% for item in menuMain %}
+                <li>
+                  <a class="e-rollover" href="{{ item.url | url }}">
+                    <span data-rollover="{{ item.data.title }}">{{ item.data.title }}</span>
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </nav>
+          <div class="relative">
+            <img src="/assets/img/placeholder-01.png" class="radius-sm aspect-golden" alt="" />
+          </div>
+        </div>
+        
+        <div class="columns md:columns-6 md:flex-nowrap mt-3xl type-sm font-medium tracking-2xl color-text-faded">
+          <div>Ready To Smile?</div>
+          <div>
+            <a target="_blank" rel="noopener noreferrer" class="e-link" href="mailto:{{client.email}}">{{- client.email -}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

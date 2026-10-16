@@ -1,0 +1,46 @@
+.parallax {
+  --move-y: 10vw;
+  --scale-from: 1;
+  --scale-to: 1.1;
+
+  overflow: clip;
+  display: block;
+
+  img,
+  video {
+    width: 100%;
+    height: calc(100% + var(--move-y)/3);
+
+    object-fit: cover;
+    z-index: -1;
+
+    animation: parallax linear both;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%; 
+  }
+}
+
+@keyframes parallax {
+  0% {
+    translate: 0 calc(var(--move-y) * -1);
+    scale: var(--scale-from);
+  }
+
+  50% {
+    scale: var(--scale-to);
+  }
+
+  100% {
+    translate: 0 var(--move-y);
+    scale: var(--scale-to);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax {
+    img,
+    video {
+      animation: none;
+    }
+  }
+}

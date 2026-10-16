@@ -1,0 +1,33 @@
+.footer-marquee {
+  &__strip {
+    overflow: hidden;
+
+    &:hover .marquee,
+    &:focus .marquee {
+      animation-play-state: paused;
+    }
+  }
+
+  &__mark {
+    width: calc(var(--size-11xl) * 3);
+
+    svg {
+      width: 100%;
+      height: auto;
+    }
+
+    path {
+      fill: currentColor;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: calc(var(--size-11xl) * 2);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .e-rollover span {
+      transition: none;
+    }
+  }
+}

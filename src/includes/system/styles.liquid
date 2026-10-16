@@ -1,0 +1,9 @@
+{% if system.environment == "production" %}
+  <!--INLINE CSS-->
+{%- else -%}
+  {% assign stylesheets = "01.base,02.components,03.modules,04.utilities,05.site" | split: "," %}
+
+  {% for file in stylesheets %}
+<link href="/assets/min/{{file}}/index.css" rel="stylesheet"/>
+  {%- endfor -%}
+{%- endif -%}

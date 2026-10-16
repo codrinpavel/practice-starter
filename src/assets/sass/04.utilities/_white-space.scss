@@ -1,0 +1,8 @@
+@use "../mixins" as *;
+
+@include util(whitespace-normal, white-space, normal);
+@include util(whitespace-nowrap, white-space, nowrap);
+@include util(whitespace-pre, white-space, pre);
+@include util(whitespace-pre-line, white-space, pre-line);
+@include util(whitespace-pre-wrap, white-space, pre-wrap);
+@include util(whitespace-break-spaces, white-space, break-spaces);

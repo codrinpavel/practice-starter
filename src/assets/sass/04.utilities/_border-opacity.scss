@@ -1,0 +1,11 @@
+@for $i from 0 through 20 {
+  $value: $i * 0.05;
+
+  .border-opacity-#{$value * 100} {
+    --border-opacity: #{$value};
+  }
+
+  .border-image-opacity-#{$value * 100} {
+    --border-image-opacity: #{$value};
+  }
+}

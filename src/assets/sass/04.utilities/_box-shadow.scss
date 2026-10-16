@@ -1,0 +1,18 @@
+@use "../mixins" as *;
+
+@include util(shadow, box-shadow, get-token("shadow"), shadow);
+
+// Shadow options
+
+@include util(--shadow-inset, --shadow-inset, inset);
+
+$sizes: (xs, sm, md);
+@each $size in $sizes {
+  @include util(--shadow-offset-#{$size}, --shadow-offset, var(--size-#{$size}));
+  @include util(--shadow-offset-x-#{$size}, --shadow-offset-x, var(--size-#{$size}));
+  @include util(--shadow-offset-y-#{$size}, --shadow-offset-y, var(--size-#{$size}));
+  @include util(--shadow-spread-#{$size}, --shadow-spread, var(--size-#{$size}));
+}
+
+// to do add to colors generator
+//@include util(--shadow-color, --shadow-color, inset);

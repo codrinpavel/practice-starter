@@ -1,0 +1,5 @@
+{
+  "layout": "base.liquid",
+  "templateEngineOverride": "liquid",
+  "tags": ["menu-treatments"]
+}

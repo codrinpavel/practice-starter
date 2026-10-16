@@ -1,0 +1,9 @@
+.wrapper {
+  margin-inline: auto;
+  padding-inline: var(--grid-margin);
+  width: 100%;
+
+  &--narrow {
+    max-width: var(--grid-screenwidth);
+  }
+}

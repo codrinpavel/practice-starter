@@ -1,0 +1,11 @@
+@use "../mixins" as *;
+
+@include util(object-top-left, object-position, top left);
+@include util(object-top, object-position, top);
+@include util(object-top-right, object-position, top right);
+@include util(object-left, object-position, left);
+@include util(object-center, object-position, center);
+@include util(object-right, object-position, right);
+@include util(object-bottom-left, object-position, bottom left);
+@include util(object-bottom, object-position, bottom);
+@include util(object-bottom-right, object-position, bottom right);

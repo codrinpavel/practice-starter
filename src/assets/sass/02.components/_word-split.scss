@@ -1,0 +1,8 @@
+.word-split {
+  position: relative;
+  opacity: 0;
+
+  &.word-split--finished {
+    opacity: 1;
+  }
+}

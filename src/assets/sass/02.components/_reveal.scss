@@ -1,0 +1,80 @@
+[data-reveal] {
+  --move-up: 1em;
+  --move-up-speed: 700ms;
+
+  opacity: 0;
+  transform: translateY(var(--move-up));
+
+  animation: 
+    fade-in 1000ms ease var(--transition-delay, 25ms) both,
+    move-up var(--move-up-speed) ease var(--transition-delay, 25ms) both;
+  animation-play-state: paused;
+}
+
+[data-reveal="words"] {
+  --move-up: 1lh;
+  --move-up-speed: 700ms;
+
+  opacity: 1;
+
+  animation: move-up var(--move-up-speed) ease var(--transition-delay, 25ms) both;
+  animation-play-state: paused;
+}
+
+[data-reveal="media"] {
+  --move-up: 20vh;
+  --move-up-speed: 1000ms;
+
+  will-change: opacity, transform;
+}
+
+[data-reveal="fade-in"] {
+  --move-up: 0px;
+
+  animation: fade-in 1000ms ease var(--transition-delay, 25ms) both;
+  animation-play-state: paused;
+
+  will-change: opacity;
+}
+
+[data-reveal="clip-horizontal-from-center"] {
+  --move-up: 0px;
+  opacity: 1;
+
+  animation: clip-horizontal-from-center 1200ms ease var(--transition-delay, 25ms) both;
+  animation-play-state: paused;
+
+  will-change: opacity;
+}
+
+.is-inview {
+  animation-play-state: running !important;
+}
+
+@keyframes fade-in {
+  from {opacity: 0}
+  to {opacity: 1}
+}
+
+@keyframes move-up {
+  from {transform: translateY(var(--move-up))}
+  to {transform: translateY(0)}
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    --move-up: 0px;
+    opacity: 1;
+    animation: none !important;
+  }
+}
+
+@keyframes clip-horizontal-from-center {
+  from {
+    clip-path: inset(0 50% 0 50% round var(--radius));
+  }
+
+  to {
+    clip-path: inset(0 0 0 0 round var(--radius));
+  }
+}
