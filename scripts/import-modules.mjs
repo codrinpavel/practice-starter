@@ -1,14 +1,14 @@
+
 /**
  * This is set up as a package.json script called "import"
- * 
- * Usage
- * 
+ *
+ * Usage:
  * npm run import modules
  * where "modules" is the name of the .json file exported by the assembler
  */
 
-
 import fs from "node:fs/promises";
+import { constants } from "node:fs";
 import path from "node:path";
 
 const SOURCE_DIR =
@@ -28,12 +28,14 @@ const SCSS_DIR = path.join(
 
 const SCSS_INDEX = path.join(SCSS_DIR, "index.scss");
 
-const jsonFile = `${process.argv[2]}.json`;
+const jsonName = process.argv[2];
 
-if (!jsonFile) {
-  console.error("Usage: node scripts/import-modules.mjs <json-file>");
+if (!jsonName) {
+  console.error("Usage: npm run import <json-file>");
   process.exit(1);
 }
+
+const jsonFile = `${jsonName}.json`;
 
 // Read and validate the exported layout.
 const data = JSON.parse(
@@ -79,6 +81,17 @@ for (const { category, module } of modules) {
   names.set(module, category);
 }
 
+// Check whether a file exists.
+async function fileExists(file) {
+  try {
+    await fs.access(file);
+    return true;
+  } catch (error) {
+    if (error.code === "ENOENT") return false;
+    throw error;
+  }
+}
+
 // Validate source files before importing.
 const files = [];
 
@@ -90,7 +103,12 @@ for (const { category, module } of modules) {
   );
 
   const liquid = path.join(moduleDir, `${module}.liquid`);
-  const scss = path.join(moduleDir, `${module}.scss`);
+
+  // Support regular SCSS files and Sass partials.
+  const scssCandidates = [
+    path.join(moduleDir, `${module}.scss`),
+    path.join(moduleDir, `_${module}.scss`),
+  ];
 
   // Liquid is required.
   await fs.access(liquid);
@@ -102,11 +120,11 @@ for (const { category, module } of modules) {
   };
 
   // SCSS is optional.
-  try {
-    await fs.access(scss);
-    entry.scss = scss;
-  } catch (error) {
-    if (error.code !== "ENOENT") throw error;
+  for (const scss of scssCandidates) {
+    if (await fileExists(scss)) {
+      entry.scss = scss;
+      break;
+    }
   }
 
   files.push(entry);
@@ -122,7 +140,7 @@ async function copyIfMissing(source, destination) {
     await fs.copyFile(
       source,
       destination,
-      fs.constants.COPYFILE_EXCL
+      constants.COPYFILE_EXCL
     );
 
     console.log(`Copied: ${path.relative(CLIENT_DIR, destination)}`);
@@ -144,7 +162,7 @@ for (const { module, liquid, scss } of files) {
   if (scss) {
     await copyIfMissing(
       scss,
-      path.join(SCSS_DIR, `${module}.scss`)
+      path.join(SCSS_DIR, path.basename(scss))
     );
   }
 }
