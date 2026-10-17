@@ -3,7 +3,7 @@
 ## Project structure
 
 - All source code lives in `src`.
-- The project uses Liquid templates, SCSS, vanilla JavaScript, Lenis, and Lucide icons.
+- The project uses Liquid templates, SCSS, vanilla JavaScript, Lenis, and custom icons.
 - A website module normally consists of exactly one Liquid file and one SCSS file:
   - `src/includes/modules/<module-name>.liquid`
   - `src/assets/sass/03.modules/_<module-name>.scss`
@@ -62,7 +62,7 @@
 
 ## SVG and icons
 
-- Use the project's Lucide `{% icon %}` shortcode for common interface icons when an equivalent exists.
+- Use the project's Icon `{% icon %}` shortcode for common interface icons when an equivalent exists.
 - Place custom SVG artwork in `src/assets/svg/client/` and render it with `{% svg %}`.
 
 ## SCSS

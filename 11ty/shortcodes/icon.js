@@ -3,14 +3,12 @@ import path from "node:path";
 
 export default function (name, className = "") {
   const iconPath = path.resolve(
-    "node_modules",
-    "lucide-static",
-    "icons",
+    "src/assets/svg/system/icon",
     `${name}.svg`
   );
 
   if (!fs.existsSync(iconPath)) {
-    throw new Error(`Lucide icon "${name}" not found.`);
+    throw new Error(`Icon "${name}" not found.`);
   }
 
   let svg = fs.readFileSync(iconPath, "utf8");

@@ -25,7 +25,7 @@ Convert the supplied HTML and CSS into a native project module while preserving 
 - Keep supplied text as written unless the user requests changes.
 - Leave externally hosted placeholder images remote. Do not download them.
 - Replace source framework utility classes with the project's existing utilities or module styles.
-- Convert common interface SVG icons to the project's Lucide shortcode. Extract other custom SVG artwork according to `AGENTS.md`.
+- Convert common interface SVG icons to the project's Icon shortcode. Extract other custom SVG artwork according to `AGENTS.md`.
 - For placeholder images, follow the project's placeholder-image rule.
 
 ## Visual and interaction rules
